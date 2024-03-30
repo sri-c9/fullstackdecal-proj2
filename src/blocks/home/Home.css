@@ -1,0 +1,15 @@
+#home-body-block {
+  background-image: url("/Users/sri/School/upper-divs/full-stack/projects/proj2/noteworthy-website/src/assets/Final Group.jpg");
+  background-repeat: no-repeat;
+  background-attachment: fixed;
+  background-size: cover;
+  background-position: center;
+  height: 100vh;
+  background-size: cover;
+  overflow: hidden;
+}
+
+#title-text {
+  font-size: 100px;
+  font-family: "Pacifico", cursive;
+}

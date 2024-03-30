@@ -1,4 +1,4 @@
-import "./App.css";
+// import "./App.css";
 
 import Home from "./blocks/home/Home";
 import AboutUs from "./blocks/about-us/AboutUs";

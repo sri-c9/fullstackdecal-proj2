@@ -1,15 +1,13 @@
 import {
   Box,
-  Link,
   Flex,
   Image,
   Spacer,
-  Button,
   Text,
   Heading,
+  Link,
 } from "@chakra-ui/react";
 import logofile from "/public/noteworthy-logo.png";
-
 import "./Home.css";
 
 function Home() {
@@ -28,11 +26,7 @@ function Home() {
             Noteworthy
           </Heading>
 
-          <Text
-            fontSize="25"
-            color="white"
-            mt="55vh" // Adjust the margin-top to move the text down
-          >
+          <Text fontSize="25" color="white" mt="55vh">
             YOUR FRIENDLY NEIGHBORHOOD A CAPELLA GROUP
           </Text>
         </Flex>
@@ -47,18 +41,60 @@ function NavBar() {
       <Logo />
       <Spacer />
       <Flex>
-        <Box paddingRight={15}>
-          <Button>About Us</Button>
+        <Box
+          paddingRight={15}
+          _hover={{
+            textDecoration: "none",
+            transform: "scale(1.10)", // Increase size on hover
+            transition: "transform 0.3s ease-in-out", // Add smooth transition
+          }}
+        >
+          {" "}
+          <NavBarButtons to="/about-us">About Us</NavBarButtons>
         </Box>
 
-        <Box paddingRight={15}>
-          <Button>Favorite Videos</Button>
+        <Box
+          paddingRight={15}
+          _hover={{
+            textDecoration: "none",
+            transform: "scale(1.10)", // Increase size on hover
+            transition: "transform 0.3s ease-in-out", // Add smooth transition
+          }}
+        >
+          {" "}
+          <NavBarButtons to="/fav-videos">Favorite Videos</NavBarButtons>
         </Box>
-        <Box paddingRight={15}>
-          <Button>Members</Button>
+        <Box
+          paddingRight={15}
+          _hover={{
+            textDecoration: "none",
+            transform: "scale(1.10)", // Increase size on hover
+            transition: "transform 0.3s ease-in-out", // Add smooth transition
+          }}
+        >
+          <NavBarButtons to="/members">Members</NavBarButtons>
         </Box>
       </Flex>
     </Flex>
+  );
+}
+function NavBarButtons({ children, to }) {
+  return (
+    <Link
+      href={to}
+      variant="solid"
+      padding="0.5rem 1rem"
+      borderRadius="md"
+      bg="#93BBED"
+      textDecoration="none"
+      borderWidth={2}
+      borderColor="transparent"
+      _hover={{
+        transition: "transform 0.3s ease-in-out", // Add smooth transition
+      }}
+    >
+      {children}
+    </Link>
   );
 }
 

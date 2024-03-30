@@ -3,9 +3,7 @@ import { Box, IconButton, useBreakpointValue } from '@chakra-ui/react';
 import { BiLeftArrowAlt, BiRightArrowAlt } from 'react-icons/bi';
 import Slider from 'react-slick';
 import image1 from './halloween.png';
-import image2 from './flyer.png';
-
-;
+// import image2 from './flyer.png';
 
 
 const settings = {

@@ -1,4 +1,4 @@
-// import { BrowserRouter as Router, Routes, Route } from "react-router-dom";
+//import { BrowserRouter as Router, Routes, Route } from "react-router-dom"; //comment out later
 import Home from "./blocks/home/Home";
 import AboutUs from "./blocks/about-us/AboutUs";
 import FavVideos from "./blocks/fav-videos/FavVideos";
@@ -21,7 +21,6 @@ function App() {
       <AboutUs />
       <FavVideos />
       <Members />
-      <Carousel />
     </>
   );
 }

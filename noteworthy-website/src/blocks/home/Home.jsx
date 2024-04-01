@@ -78,6 +78,7 @@ function NavBar() {
     </Flex>
   );
 }
+
 function NavBarButtons({ children, to }) {
   return (
     <Link
@@ -89,8 +90,12 @@ function NavBarButtons({ children, to }) {
       textDecoration="none"
       borderWidth={2}
       borderColor="transparent"
+      style={{
+        flexBasis: "30%",
+        transition: "transform 0.3s ease-in-out", // Add smooth transition for transform property
+      }}
       _hover={{
-        transition: "transform 0.3s ease-in-out", // Add smooth transition
+        transform: "scale(1.05)", // Apply transform on hover
       }}
     >
       {children}

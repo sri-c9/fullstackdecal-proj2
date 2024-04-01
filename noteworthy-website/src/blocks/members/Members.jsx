@@ -18,10 +18,19 @@ function MemberCard({ memberData }) {
   return (
     <Flex
       flexDirection={"column"}
+      boxShadow={"md"}
+      rounded="md"
+      padding={8}
+      margin={5}
       style={{
         flexBasis: "30%",
         marginBottom: "20px",
         justifyContent: "center", // Center the text within the div
+        transition: "transform 0.3s ease-in-out", // Add smooth transition for transform property
+      }}
+      _hover={{
+        textDecoration: "none",
+        transform: "scale(1.075)", // Increase size on hover
       }}
     >
       <Text>{memberData.Name}</Text>

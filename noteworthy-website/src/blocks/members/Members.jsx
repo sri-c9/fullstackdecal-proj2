@@ -17,6 +17,7 @@ function Members() {
 function MemberCard({ memberData }) {
   return (
     <Flex
+      flexDirection={"column"}
       style={{
         flexBasis: "30%",
         marginBottom: "20px",
@@ -24,8 +25,7 @@ function MemberCard({ memberData }) {
       }}
     >
       <Text>{memberData.Name}</Text>
-      <h2>{memberData.ImagePath}</h2>
-      <Image src={memberData.ImagePath} alt="member image" />
+      <Image src={memberData.ImagePath} />
       {/* Access other properties of memberData as needed */}
     </Flex>
   );

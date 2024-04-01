@@ -1,7 +1,7 @@
 import csv
 import json
 
-PATH_TO_IMAGES = "noteworthy-website/src/blocks/members/data/member-images"
+PATH_TO_IMAGES = "/member-images/"
 
 
 def csv_to_json(csv_file, json_file):
@@ -22,9 +22,9 @@ def csv_to_json(csv_file, json_file):
 
 def match_image_to_member(row):
     lwc_first_name = row['Name'].split()[0].lower()
-    image_path = f"{PATH_TO_IMAGES}/{lwc_first_name}.jpg"
+    image_path = f"{PATH_TO_IMAGES}{lwc_first_name}.jpg"
     row["ImagePath"] = image_path
 
 
-csv_to_json('noteworthy-website/src/blocks/members/data/input.csv',
-            'noteworthy-website/src/blocks/members/data/output.json')
+csv_to_json('src/blocks/members/data/input.csv',
+            'src/blocks/members/data/output.json')

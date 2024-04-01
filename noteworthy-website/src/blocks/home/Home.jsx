@@ -7,7 +7,7 @@ import {
   Heading,
   Link,
 } from "@chakra-ui/react";
-import logofile from "/public/noteworthy-logo.png";
+import logofile from "/src/assets/noteworthy-logo.png";
 import "./Home.css";
 
 function Home() {

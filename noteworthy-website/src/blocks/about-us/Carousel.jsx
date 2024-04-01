@@ -1,88 +1,61 @@
-import React from 'react';
-import { Box, IconButton, useBreakpointValue } from '@chakra-ui/react';
-import { BiLeftArrowAlt, BiRightArrowAlt } from 'react-icons/bi';
-import Slider from 'react-slick';
-import image1 from './halloween.png';
-// import image2 from './flyer.png';
+import React, { useState } from 'react';
+import { Box, IconButton, Image, Flex } from '@chakra-ui/react';
+import { ChevronLeftIcon, ChevronRightIcon } from '@chakra-ui/icons';
+import flyer from './flyer.png';
+import halloween from './halloween.png';
+import welcome from './Welcome.png';
+import west from './West.jpg';
 
+const images = [
+  halloween,
+  flyer,
+  welcome,
+  west
+];
 
-const settings = {
-  dots: true,
-  arrows: false,
-  fade: true,
-  infinite: true,
-  autoplay: true,
-  speed: 500,
-  autoplaySpeed: 5000,
-  slidesToShow: 1,
-  slidesToScroll: 1,
-};
+const Carousel = () => {
+  const [currentImage, setCurrentImage] = useState(0);
+  const handleNext = () => setCurrentImage((prev) => (prev + 1) % images.length);
+  const handlePrev = () => setCurrentImage((prev) => (prev - 1 + images.length) % images.length);
 
-function Carousel() {
-  const [slider, setSlider] = React.useState(null);
-  const top = useBreakpointValue({ base: '90%', md: '50%' });
-  const side = useBreakpointValue({ base: '30%', md: '10px' });
-
-  const cards = [
-    image1,
-    //image2
-    //i just got this carousel chakra code online but it's glitching rn when i try to add more than one image
-  ];
+  const arrowStyles = {
+    cursor: 'pointer',
+    pos: 'absolute',
+    top: '50%',
+    w: 'auto',
+    mt: '-22px',
+    p: '16px',
+    color: 'white',
+    fontWeight: 'bold',
+    fontSize: '24px',
+    transition: '0.6s ease',
+    borderRadius: '0 3px 3px 0',
+    userSelect: 'none',
+    _hover: {
+      opacity: 0.8,
+      bg: 'black',
+    },
+  };
 
   return (
-    <Box position={'relative'} height={'300px'} width={'80%'} overflow={'hidden'}>
-      <link
-        rel="stylesheet"
-        type="text/css"
-        href="https://cdnjs.cloudflare.com/ajax/libs/slick-carousel/1.6.0/slick.min.css"
-      />
-      <link
-        rel="stylesheet"
-        type="text/css"
-        href="https://cdnjs.cloudflare.com/ajax/libs/slick-carousel/1.6.0/slick-theme.min.css"
-      />
+    <Flex justifyContent="center" alignItems="center" position="relative" w="full" h="full" maxW="600px" maxH="400px" m="40px auto" overflow="hidden">
       <IconButton
-        aria-label="left-arrow"
-        colorScheme="messenger"
-        borderRadius="full"
-        position="absolute"
-        left={side}
-        top={top}
-        transform={'translate(0%, -50%)'}
-        zIndex={2}
-        onClick={() => slider?.slickPrev()}
-      >
-        <BiLeftArrowAlt />
-      </IconButton>
+        aria-label="Previous image"
+        icon={<ChevronLeftIcon />}
+        {...arrowStyles}
+        left="0"
+        onClick={handlePrev}
+      />
+      <Image src={images[currentImage]} objectFit="contain" boxSize="100%" />
       <IconButton
-        aria-label="right-arrow"
-        colorScheme="messenger"
-        borderRadius="full"
-        position="absolute"
-        right={side}
-        top={top}
-        transform={'translate(0%, -50%)'}
-        zIndex={2}
-        onClick={() => slider?.slickNext()}
-      >
-        <BiRightArrowAlt />
-      </IconButton>
-      <Slider {...settings} ref={(slider) => setSlider(slider)}>
-        {cards.map((url, index) => (
-          <Box
-            key={index}
-            height={'100%'}
-            width={'100%'}
-            position="relative"
-            backgroundPosition="center"
-            backgroundRepeat="no-repeat"
-            backgroundSize="cover"
-            backgroundImage={`url(${url})`}
-          />
-        ))}
-      </Slider>
-    </Box>
+        aria-label="Next image"
+        icon={<ChevronRightIcon />}
+        {...arrowStyles}
+        right="0"
+        onClick={handleNext}
+      />
+    </Flex>
   );
-}
+};
 
 export default Carousel;

@@ -1,19 +1,14 @@
-import { useState } from "react";
-import {
-  Box,
-  Text,
-  Flex,
-  IconButton,
-  useBreakpointValue,
-} from "@chakra-ui/react";
+import React, { useState } from "react";
+import { Box, Text, Flex, IconButton, useBreakpointValue } from "@chakra-ui/react";
 import { BiLeftArrowAlt, BiRightArrowAlt } from "react-icons/bi";
+import YouTube from 'react-youtube';
 
 function VideoPage() {
   // Sample video data
   const videos = [
-    { title: "Video 1", url: "https://example.com/video1.mp4" },
-    { title: "Video 2", url: "https://example.com/video2.mp4" },
-    { title: "Video 3", url: "https://example.com/video3.mp4" },
+    { title: "Video 1", url: "n0p8MxT8AxI" },
+    { title: "Video 2", url: "cDjY-1WuB3o" },
+    { title: "Video 3", url: "kW57PpibCMA" },
     // Add more videos as needed
   ];
 
@@ -71,10 +66,10 @@ function VideoPage() {
         {/* Display Current Video */}
         <Box>
           {/* Video Player */}
-          <video width="560" height="315" controls>
-            <source src={videos[currentIndex].url} type="video/mp4" />
-            Your browser does not support the video tag.
-          </video>
+          <YouTube
+            videoId={videos[currentIndex].url}
+            opts={{ width: '560', height: '315' }}
+          />
           {/* Video Title */}
           <Text textAlign="center" mt={2} fontWeight="bold">
             {videos[currentIndex].title}

@@ -10,6 +10,36 @@ import {
 import logofile from "/src/assets/noteworthy-logo.png";
 import "./Home.css";
 
+const scollToAbout = () => {
+  var id = "about-us";
+  console.log("in scrollToBlock for id=", id);
+
+  const block = document.getElementById(id); // Remove # from id
+  if (block) {
+    block.scrollIntoView({ behavior: "smooth" });
+  }
+};
+
+const scrollToVids = () => {
+  var id = "fav-videos";
+  console.log("in scrollToBlock for id=", id);
+
+  const block = document.getElementById(id); // Remove # from id
+  if (block) {
+    block.scrollIntoView({ behavior: "smooth" });
+  }
+};
+
+const scrollToMembers = () => {
+  var id = "members";
+  console.log("in scrollToBlock for id=", id);
+
+  const block = document.getElementById(id); // Remove # from id
+  if (block) {
+    block.scrollIntoView({ behavior: "smooth" });
+  }
+};
+
 function Home() {
   return (
     <>
@@ -42,6 +72,7 @@ function NavBar() {
       <Spacer />
       <Flex>
         <Box
+          onClick={scollToAbout}
           paddingRight={15}
           _hover={{
             textDecoration: "none",
@@ -50,10 +81,11 @@ function NavBar() {
           }}
         >
           {" "}
-          <NavBarButtons to="/about-us">About Us</NavBarButtons>
+          <NavBarButtons>About Us</NavBarButtons>
         </Box>
 
         <Box
+          onClick={scrollToVids}
           paddingRight={15}
           _hover={{
             textDecoration: "none",
@@ -62,9 +94,10 @@ function NavBar() {
           }}
         >
           {" "}
-          <NavBarButtons to="/fav-videos">Favorite Videos</NavBarButtons>
+          <NavBarButtons>Favorite Videos</NavBarButtons>
         </Box>
         <Box
+          onClick={scrollToMembers}
           paddingRight={15}
           _hover={{
             textDecoration: "none",
@@ -72,7 +105,7 @@ function NavBar() {
             transition: "transform 0.3s ease-in-out", // Add smooth transition
           }}
         >
-          <NavBarButtons to="/members">Members</NavBarButtons>
+          <NavBarButtons>Members</NavBarButtons>
         </Box>
       </Flex>
     </Flex>

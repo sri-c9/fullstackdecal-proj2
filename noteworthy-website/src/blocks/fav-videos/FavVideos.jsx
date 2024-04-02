@@ -1,7 +1,7 @@
-import React, { useState } from "react";
-import { Box, Text, Flex, IconButton, useBreakpointValue } from "@chakra-ui/react";
+import { useState } from "react";
+import { Box, Text, Flex, IconButton } from "@chakra-ui/react";
 import { BiLeftArrowAlt, BiRightArrowAlt } from "react-icons/bi";
-import YouTube from 'react-youtube';
+import YouTube from "react-youtube";
 
 function VideoPage() {
   // Sample video data
@@ -15,8 +15,8 @@ function VideoPage() {
   const [currentIndex, setCurrentIndex] = useState(0);
 
   // Adjust the button position based on screen size
-  const buttonTop = useBreakpointValue({ base: "50%", md: "40%" });
-  const buttonSide = useBreakpointValue({ base: "5%", md: "2%" });
+  // const buttonTop = useBreakpointValue({ base: "50%", md: "40%" });
+  // const buttonSide = useBreakpointValue({ base: "5%", md: "2%" });
 
   // Handler to navigate to the previous video
   const goToPreviousVideo = () => {
@@ -33,50 +33,68 @@ function VideoPage() {
   };
 
   return (
-    <Box textAlign="center">
+    <Flex
+      textAlign="center"
+      flexDirection="column"
+      margin={"5%"}
+      id="fav-videos"
+    >
       {/* Title */}
       <Text fontSize="2xl" fontWeight="bold" mb={6}>
         Our Favorite Videos
       </Text>
 
       {/* Video Carousel */}
-      <Flex justifyContent="center" position="relative">
+      <Flex
+        justifyContent={"center"}
+        alignItems={"center"}
+        position={"relative"}
+      >
         {/* Previous Video Button */}
-        <IconButton
-          aria-label="Previous Video"
-          icon={<BiLeftArrowAlt />}
-          colorScheme="blue"
-          borderRadius="full"
-          position="absolute"
-          left={buttonSide}
-          top={buttonTop}
-          onClick={goToPreviousVideo}
-        />
-        {/* Next Video Button */}
-        <IconButton
-          aria-label="Next Video"
-          icon={<BiRightArrowAlt />}
-          colorScheme="blue"
-          borderRadius="full"
-          position="absolute"
-          right={buttonSide}
-          top={buttonTop}
-          onClick={goToNextVideo}
-        />
-        {/* Display Current Video */}
+
         <Box>
+          <IconButton
+            aria-label="Previous Video"
+            icon={<BiLeftArrowAlt />}
+            borderRadius="full"
+            position="absolute"
+            left={0}
+            top="50%"
+            transform="translateY(-50%)"
+            zIndex={1}
+            onClick={goToPreviousVideo}
+            backgroundColor={"#93BBED"}
+            color={"black"}
+          />
+        </Box>
+        {/* Display Current Video */}
+        <Box position="relative" width="960px" height="540px">
           {/* Video Player */}
           <YouTube
             videoId={videos[currentIndex].url}
-            opts={{ width: '560', height: '315' }}
+            opts={{ width: "960px", height: "540px" }}
           />
-          {/* Video Title */}
-          <Text textAlign="center" mt={2} fontWeight="bold">
-            {videos[currentIndex].title}
-          </Text>
+        </Box>
+
+        {/* Next Video Button */}
+        <Box>
+          <IconButton
+            aria-label="Next Video"
+            icon={<BiRightArrowAlt />}
+            // colorScheme="blue"
+            backgroundColor={"#93BBED"}
+            color={"black"}
+            borderRadius="full"
+            position="absolute"
+            right={0}
+            top="50%"
+            transform="translateY(-50%)"
+            zIndex={1}
+            onClick={goToNextVideo}
+          />
         </Box>
       </Flex>
-    </Box>
+    </Flex>
   );
 }
 

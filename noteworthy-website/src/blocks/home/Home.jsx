@@ -138,12 +138,22 @@ function NavBarButtons({ children, to }) {
 
 function Logo() {
   return (
-    <Box>
+    <Box onClick={scollToHome}>
       <Link>
-        <Image src={logofile} alt="Logo" boxSize="100px" />
+        <Image src={logofile} alt="Logo" boxSize="200px" rounded="full" />
       </Link>
     </Box>
   );
 }
+
+const scollToHome = (id) => {
+  id = "home";
+  console.log("in scrollToBlock for id=", id);
+
+  const block = document.getElementById(id); // Remove # from id
+  if (block) {
+    block.scrollIntoView({ behavior: "smooth" });
+  }
+};
 
 export default Home;

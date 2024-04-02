@@ -109,8 +109,19 @@ function MemberCard({ memberData, index }) {
               </Text>
               {/* Add more fields as needed */}
               <Flex mt={4}>
-                <Button onClick={prevMember}>Previous</Button>
-                <Button ml={4} onClick={nextMember}>
+                <Button
+                  color="black"
+                  backgroundColor="#93BBED"
+                  onClick={prevMember}
+                >
+                  Previous
+                </Button>
+                <Button
+                  ml={4}
+                  onClick={nextMember}
+                  color="black"
+                  backgroundColor="#93BBED"
+                >
                   Next
                 </Button>
               </Flex>

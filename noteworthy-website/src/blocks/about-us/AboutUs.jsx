@@ -5,11 +5,13 @@ import {
   Image,
   VStack,
   Heading,
+  IconButton,
   Flex,
 } from "@chakra-ui/react";
 import Carousel from "./Carousel";
 import Hall from "./Hall.jpg";
 import Follow from "./Follow.png";
+import { BiLogoInstagram, BiLogoTiktok } from "react-icons/bi";
 
 function AboutUs() {
   return (
@@ -82,6 +84,27 @@ function AboutUs() {
           <Heading as="h2" size="lg">
             Follow Us
           </Heading>
+
+          <Link href="https://www.instagram.com/cal_noteworthy/" isExternal>
+            <IconButton
+              icon={<BiLogoInstagram />}
+              bg="#405DE6"
+              _hover={{ bg: "#314EAF" }}
+              _active={{ bg: "#314EAF" }}
+              color="white"
+            />
+          </Link>
+
+          <Link href="https://www.tiktok.com/@uc_noteworthy" isExternal>
+            <IconButton
+              icon={<BiLogoTiktok />}
+              bg="#FF0000"
+              _hover={{ bg: "#CC0000" }}
+              _active={{ bg: "#CC0000" }}
+              color="white"
+            />
+          </Link>
+
           <Image
             src={Follow}
             alt="Follow"
